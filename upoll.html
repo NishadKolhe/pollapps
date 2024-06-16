@@ -1,0 +1,24 @@
+{%  extends 'base.html'  %}
+{%  block content  %}
+	<h1> Poll Page</h1>
+	<a href="{%  url  'ucreate'  %}">Create Poll</a>
+	<br><br>
+	<table border="5" style="width:100%; text-align:center;">
+			<tr>
+				<th>Question</th>
+				<th>option 1</th>
+				<th>option 2</th>
+				<th>option 3</th>
+				<th>vote</th>
+	{%  for d in msg  %}
+			</tr>
+			<tr>
+				<td>{{d.question}}</td>
+				<td>{{d.op1}}</td>
+				<td>{{d.op2}}</td>
+				<td>{{d.op3}}</td>
+				<td><a href="{%  url 'uvote'   %}" onclick="return confirm("Sure?")">Vote</a></td>
+				
+			</tr>
+			{%  endfor  %}
+{%  endblock  %}
